@@ -33,7 +33,7 @@ get '/:name?' => sub {
 	#generate qrcode
 	my $file_full_path = config->{base_dir} . '/' . $name . '/' . $opts{o};
 	_generateQRcode(request->uri_base . "/$name/view/all", $file_full_path);
-	template 'index',{"message"=>"八点半了，$display_name还在加班吗？",name=>$name};
+	template 'index',{"message"=>"八点半了，$display_name 还在加班吗？",name=>$name};
 };
 
 
