@@ -5,7 +5,7 @@
 <div class="row fileupload-buttonbar">
   <span class="btn btn-success fileinput-button btn-huge">
       <i class="glyphicon glyphicon-plus"></i>
-      <span>点击上传</span>
+      <span id="uploadText">点击上传</span>
       <input id="fileupload" type="file" name="files" data-url="/api/upload/[% name %]" multiple>
   </span>
   <div style="margin-top:10px;">
@@ -24,10 +24,11 @@ $(function () {
         multipart: true,
         progressall: function (e, data) {
           var progress = parseInt(data.loaded / data.total * 100, 10);
-          $('#progress .bar').css(
-              'width',
-              progress + '%'
-          );
+          if(progress == 100){
+            $("#uploadText").text("上传成功，你可以扫描二维码查看结果");
+          }else{
+            $("#uploadText").text("上传中...");
+          }
         },
         done: function (e, data) {
           
