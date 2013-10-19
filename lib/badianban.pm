@@ -21,7 +21,6 @@ sub _generateQRcode{
 	    size =>  $opts{s},
 	    level => $opts{e},
 	);
-	debug $str;
 	my $img = $qr->plot($str);
 	$img->write( file => $file,type=>'png');
 }
@@ -63,7 +62,6 @@ get '/:name/view/:date' => sub{
 	opendir my($dh), config->{base_dir}."/$name" or return "Couldn't open dir $date: $!";
 	my @folders = readdir $dh;
 	closedir $dh;
-	debug @folders;
 	my $events = {};
 	#print files...
 	foreach(@folders){
