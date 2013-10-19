@@ -26,14 +26,15 @@ sub _generateQRcode{
 	$img->write( file => $file,type=>'png');
 }
 
-get '/:name' => sub {
+get '/:name?' => sub {
 	my $name = param('name') || 'default';
+	my $display_name = param('name') || "你";
 	#check if folder exists
 	mkdir config->{base_dir} . $name unless(-d config->{base_dir} . $name);
 	#generate qrcode
 	my $file_full_path = config->{base_dir} . '/' . $name . '/' . $opts{o};
 	_generateQRcode(request->uri_base . "/$name/view/all", $file_full_path);
-	template 'index',{"message"=>"八点半了，$name 还在加班吗？",name=>$name};
+	template 'index',{"message"=>"八点半了，$display_name还在加班吗？",name=>$name};
 };
 
 
