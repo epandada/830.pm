@@ -1,0 +1,13 @@
+[% PROCESS common/header.tt%]
+<div class="wrapper">
+  <div class="container">
+  	<p style="padding:15px;text-align:center">
+  	[% FOREACH fieldname in events.keys %]
+  		<div style="float:left;margin:10px;">
+			<h2>[% fieldname %]</h2>
+			<a href="/view/[% date %]/[% fieldname %]" target="_self"><img src="[% events.$fieldname %]" style="height:200px"></a>
+		</div>
+  	[% END %]
+  	</p>
+  </div>
+</div>

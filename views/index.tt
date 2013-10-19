@@ -1,0 +1,26 @@
+[% PROCESS common/header.tt%]
+<div class="wrapper">
+  <div class="container">
+    <div class="panel-project">
+      <input id="fileupload" type="file" name="files" data-url="/api/upload" multiple>
+    </div>
+  </div>
+</div>
+
+<script>
+$(function () {
+    $('#fileupload').fileupload({
+        dataType: 'json',
+        multipart: true,
+        progressall: function (e, data) {
+          var progress = parseInt(data.loaded / data.total * 100, 10);
+          $('#progress .bar').css(
+              'width',
+              progress + '%'
+          );
+        },
+        done: function (e, data) {
+        }
+    });
+});
+</script>

@@ -1,0 +1,9 @@
+<div id="MainContent">
+
+<ul id="Gallery" class="gallery">
+	[% FOREACH item in result %]
+	<li><a href="[%item%]"><img src="[%item%]" alt=""></a></li>
+	[% END %]
+</ul>
+
+</div>
