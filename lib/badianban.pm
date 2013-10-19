@@ -27,7 +27,7 @@ sub _generateQRcode{
 
 get '/:name?' => sub {
 	my $name = param('name') || 'default';
-	my $display_name = param('name') || "你";
+	my $display_name = $name eq 'default' ? "你" : $name;
 	#check if folder exists
 	mkdir config->{base_dir} . $name unless(-d config->{base_dir} . $name);
 	#generate qrcode
