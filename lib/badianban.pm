@@ -92,7 +92,8 @@ post '/api/upload/:name' => sub {
 		mkdir config->{base_dir};
 	}
 	my $dt = DateTime->now(time_zone=>'local');
-	my $folder_path = config->{base_dir} . "/$name/" . $dt->ymd . '_' . $dt->hms('-');;
+	my @hms = split(/-/,$dt->hms('-'));
+	my $folder_path = config->{base_dir} . "/$name/" . $dt->ymd . '_' . $hms[0] . '-' . $hms[1];
 	
 	#check if folder exist
 	unless(-d  $folder_path){
