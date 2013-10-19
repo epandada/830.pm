@@ -1,11 +1,21 @@
-[% PROCESS common/header.tt%]
-<div class="wrapper">
-  <div class="container">
-    <div class="panel-project">
-      <input id="fileupload" type="file" name="files" data-url="/api/upload" multiple>
-    </div>
+<div class="jumbotron" style="height:400px;">
+  <p style="font-size:36px;font-weight:heavy;">[% message %]</p>
+  <p style="font-size:24px">试着上传你的图像文件吧（支持批量上传）</p>
+
+<div class="row fileupload-buttonbar">
+  <span class="btn btn-success fileinput-button btn-huge">
+      <i class="glyphicon glyphicon-plus"></i>
+      <span>点击上传</span>
+      <input id="fileupload" type="file" name="files" data-url="/api/upload/[% name %]" multiple>
+  </span>
+  <div style="margin-top:10px;">
+    <p><a href="[% name %]/view/all">查看所有项目</a></p>
+    <img src="/data/[%name%]/qrcode.png" width="150px">
   </div>
 </div>
+
+</div>
+
 
 <script>
 $(function () {
@@ -20,6 +30,7 @@ $(function () {
           );
         },
         done: function (e, data) {
+          
         }
     });
 });

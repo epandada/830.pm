@@ -28,21 +28,6 @@ auto_reload: 1
 
 
 #
-base_dir: "/Users/user/Project/badianban/public/data/default"
-http_dir: "/data/default"
+base_dir: "/Users/user/Project/badianban/public/data/"
+http_dir: "/data/"
 
-#
-plugins:
-  'Database':
-    driver: 'mysql'
-    database: '830'
-    host: 'localhost'
-    port: 3306
-    username: 'root'
-    password: 'root'
-    connection_check_threshold: 10
-    dbi_params:
-        RaiseError: 1
-        AutoCommit: 1
-    on_connect_do: ["SET NAMES 'utf8'", "SET CHARACTER SET 'utf8'" ]
-    log_queries: 1

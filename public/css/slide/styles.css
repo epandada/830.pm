@@ -1,4 +1,4 @@
-body { padding: 0; margin: 0; background: #DFDCD1; font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif; color: #444340; }
+body { padding: 0; margin: 0; background: #DFDCD1 !important;  font-family: "Lucida Grande", Helvetica, Arial,Verdana, sans-serif; color: #444340; }
 h1 { font-size: 1.3em; padding: 15px 10px; margin: 0; }
 h2 { font-size: 1.1em; padding: 10px; margin: 0; }
 img { border: none; }
@@ -7,7 +7,7 @@ a { color: #444340; }
 #Header { background: #EEBF02; height: 61px; padding: 0; border-bottom: 1px solid #3c3c3c;  }
 #Header img { display: block; margin: 0 auto 0; }
 
-#MainContent { background: #ffffff; padding-bottom: 30px; }
+#MainContent { padding-bottom: 30px; }
 
 #Footer { padding: 10px; border-top: none; } 
 
@@ -28,3 +28,85 @@ a { color: #444340; }
 #Indicators { text-align: center; margin-top: 20px; }
 #Indicators span { display: inline-block; height: 10px; width: 10px; margin: 0 10px 0 0; padding: 0; -webkit-border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; border-radius:5px; background: #c5c5c5; overflow:hidden; }
 #Indicators span.current{ background: #EEBF02; }
+
+.links-left{
+  float:left;
+  width:500px;
+  height: 40px;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  margin-top: 10px;
+}
+.links-right{
+  float:right;
+  width:300px;
+  height: 40px;
+  margin-top: 10px;
+}
+.wrapper{
+}
+.container{
+  height:1000px;
+}
+.nav{
+  text-align: center;
+  margin-top:20px;
+}
+.bar {
+    height: 18px;
+    background: green;
+}
+.panel-middle{
+  -webkit-perspective: 800px;
+  position: relative;
+  display: block;
+  width: 400px;
+  height: 40px;
+  margin: 5px auto;
+}
+.panel-project{
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border:2px dashed #34495e;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  padding:25px;
+  margin-top: 25px;
+  text-align:center;
+}
+.jumbotron {
+  position: relative;
+  padding: 40px 0;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
+  background: #020031; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #020031 0%, #6d3353 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+     -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+          box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+}
+.jumbotron h1 {
+  font-size: 80px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.jumbotron p {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.25;
+  margin-bottom: 30px;
+}
+.btn-huge{
+	font-size:25px!important;
+	line-height: 35px!important;
+}

@@ -1,13 +1,12 @@
 [% PROCESS common/header.tt%]
-<div class="wrapper">
-  <div class="container">
-  	<p style="padding:15px;text-align:center">
-  	[% FOREACH fieldname in events.keys %]
-  		<div style="float:left;margin:10px;">
-			<h2>[% fieldname %]</h2>
-			<a href="/view/[% date %]/[% fieldname %]" target="_self"><img src="[% events.$fieldname %]" style="height:200px"></a>
+
+<ul class="gallery">
+	[% FOREACH fieldname in events.keys %]
+	<li>
+		<div style="float:left;margin:10px;text-align:center">
+			<p style="font-size:15px">上传时间：[% date %] [% events.$fieldname.title %]</p>
+			<a href="[% events.$fieldname.link %]" target="_self"><img src="[% events.$fieldname.name %]"></a>
 		</div>
-  	[% END %]
-  	</p>
-  </div>
-</div>
+	</li>
+	[% END %]
+</ul>
