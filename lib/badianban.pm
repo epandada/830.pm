@@ -58,18 +58,37 @@ get '/:name/view/:date/:event' => sub{
 get '/:name/view/:date' => sub{
 	my $name = param('name') || 'default';
 	my $date = param('date');
+	my $events = {};
 	#read all folders
 	opendir my($dh), config->{base_dir}."/$name" or return "Couldn't open dir $date: $!";
 	my @folders = readdir $dh;
 	closedir $dh;
-	my $events = {};
 	#print files...
 	foreach(@folders){
+		#ignore system folders
+		next unless($_ =~ /[\d\-]+_[\d\-]+/);
 		my @folder_name = split(/_/,$_);
+		my $group;
+		my $dt = DateTime->now(time_zone=>'local');
+		my @folder_dt = split(/-/,$folder_name[0]);
+		my $folder_dt = DateTime->new(
+			year => $folder_dt[0],
+			month => $folder_dt[1],
+			day => $folder_dt[2],
+			time_zone=>'local'
+		);
 		if((scalar(@folder_name) == 2 && $date eq "all" && $folder_name[1] ne "Store") || ($date eq $folder_name[0])){
-			$events->{$folder_name[1]}->{name} = config->{http_dir} . "/$name/" . join('_',@folder_name) . '/' . $opts{t};
-			$events->{$folder_name[1]}->{link} = "/$name/view/" . $folder_name[0] . '/' . $folder_name[1];
-			$events->{$folder_name[1]}->{title} = join(":",split(/-/,$folder_name[1]));
+			if($folder_name[0] eq $dt->ymd){
+				$group = 'today';
+			}elsif($dt->week_number() == $folder_dt->week_number()){
+				$group = 'week';
+			}else{
+				$group = 'before';
+			}
+
+			$events->{$group}->{$folder_name[1]}->{name} = config->{http_dir} . "/$name/" . join('_',@folder_name) . '/' . $opts{t};
+			$events->{$group}->{$folder_name[1]}->{link} = "/$name/view/" . $folder_name[0] . '/' . $folder_name[1];
+			$events->{$group}->{$folder_name[1]}->{title} = join(":",split(/-/,$folder_name[1]));
 		}else{
 		}
 	}
