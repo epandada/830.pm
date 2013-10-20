@@ -1,8 +1,8 @@
 [% PROCESS common/header.tt%]
 
 <ul class="gallery">
-	[% FOREACH fieldname in events.today.keys %]
 	<p style="font-size:24px;margin-top:15px;">今天<p>
+	[% FOREACH fieldname in events.today.keys %]
 	<li>
 		<div style="float:left;margin:10px;text-align:left">
 			<p style="font-size:18px">[% events.today.$fieldname.title %]</p>
@@ -12,8 +12,8 @@
 	[% END %]
 </ul>
 <ul class="gallery">
-	[% FOREACH fieldname in events.week.keys %]
 	<p style="font-size:24px;margin-top:15px;">本周<p>
+	[% FOREACH fieldname in events.week.keys %]
 	<li>
 		<div style="float:left;margin:10px;text-align:left">
 			<p style="font-size:18px">[% events.week.$fieldname.title %]</p>
@@ -23,8 +23,8 @@
 	[% END %]
 </ul>
 <ul class="gallery">
-	[% FOREACH fieldname in events.before.keys %]
 	<p style="font-size:24px;margin-top:15px;">以前<p>
+	[% FOREACH fieldname in events.before.keys %]
 	<li>
 		<div style="float:left;margin:10px;text-align:left">
 			<p style="font-size:18px">[% events.before.$fieldname.title %]</p>
